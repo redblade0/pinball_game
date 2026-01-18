@@ -39,7 +39,6 @@ class PinballMachine:
         points1 = [(58,320), (50, 320), (200,650), (208,650)]
         pygame.draw.polygon(screen, (255,255,0), points1, 0)
 
-
         # right slanted wall
         points2 = [(525,272), (450,360), (450,352), (525,262)]
         pygame.draw.polygon(screen, (255,255,0), points2,0)
@@ -69,14 +68,21 @@ class PinballMachine:
 
     def drawLauncher(self, screen):
         # draw launcher + ball in intial state
-        pass
+        GRAY = (105,105,105)
+        pygame.draw.rect(screen, GRAY, (35,450,8,200)) # Pipe
+        pygame.draw.rect(screen, GRAY, (29,450,20,20)) # Block
+        
     
     def drawFlippers(self, screen):
         # draw flippers
         GRAY = (105,105,105)
         pygame.draw.rect(screen, GRAY, (180,400,8,75)) # left pole
         pygame.draw.rect(screen, GRAY, (370,400,8,75)) # right pole
-        pass
+        RED = (255,0,0)
+        pointsLeftFipper = [(188, 470), (200, 550), (230, 550)]
+        pygame.draw.polygon(screen, RED, pointsLeftFipper,0) # left flipper
+        pointsRightFlipper = [(370, 470),(358, 550), (328, 550)]
+        pygame.draw.polygon(screen, RED, pointsRightFlipper,0) # right flipper
 
 
     def drawBigBall(self, screen):

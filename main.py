@@ -16,19 +16,17 @@ ball = Ball(275,520, 10, (0,0,255), 0, 0)
 machine = PinballMachine(width=SCREEN_WIDTH, height=SCREEN_HEIGHT, score = 0)
 machine.ball = ball
 
-points = [(188, 470), (200, 550), (188, 550)]
 
 running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
     machine.drawMachine(screen)
     machine.drawSmallBalls(screen)
     machine.drawBigBall(screen)
     machine.drawFlippers(screen)
-    pygame.draw.polygon(screen, (255,0,0),points,0)
+    machine.drawLauncher(screen)
     pygame.display.flip()
     clock.tick(FPS)
 
