@@ -11,22 +11,20 @@ clock = pygame.time.Clock()
 FPS = 60
 pygame.display.set_caption("Pinball-Game")
 
-
-ball = Ball(275,520, 10, (0,0,255), 0, 0)
+WHITE = (255,255,255)
+RADIUS = 9
+ball = Ball(39,440, RADIUS, WHITE, 0, 0)
 machine = PinballMachine(width=SCREEN_WIDTH, height=SCREEN_HEIGHT, score = 0)
 machine.ball = ball
-
 
 running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-    machine.drawMachine(screen)
-    machine.drawSmallBalls(screen)
-    machine.drawBigBall(screen)
-    machine.drawFlippers(screen)
-    machine.drawLauncher(screen)
+
+    machine.drawPinballMachine(screen)
+    ball.draw(screen)
     pygame.display.flip()
     clock.tick(FPS)
 

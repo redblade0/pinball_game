@@ -1,6 +1,7 @@
 import pygame
 import math
 from ball import Ball
+
 class PinballMachine:        
 
     def __init__(self, width, height, score):
@@ -18,11 +19,11 @@ class PinballMachine:
         # something to check collisions
     
     def drawPinballMachine(self, screen):
-        # draw pinball machine and background
-        # draw flippers in start state
-        # draw ball in start state
-        # draw obstacles
-        pass
+        self.drawMachine(screen)
+        self.drawSmallBalls(screen)
+        self.drawBigBall(screen)
+        self.drawFlippers(screen)
+        self.drawLauncher(screen)
 
     
     def drawMachine(self, screen):
@@ -71,7 +72,7 @@ class PinballMachine:
         GRAY = (105,105,105)
         pygame.draw.rect(screen, GRAY, (35,450,8,200)) # Pipe
         pygame.draw.rect(screen, GRAY, (29,450,20,20)) # Block
-        
+
     
     def drawFlippers(self, screen):
         # draw flippers
@@ -79,9 +80,9 @@ class PinballMachine:
         pygame.draw.rect(screen, GRAY, (180,400,8,75)) # left pole
         pygame.draw.rect(screen, GRAY, (370,400,8,75)) # right pole
         RED = (255,0,0)
-        pointsLeftFipper = [(188, 470), (200, 550), (230, 550)]
+        pointsLeftFipper = [(188, 470), (260, 510), (230, 510)]
         pygame.draw.polygon(screen, RED, pointsLeftFipper,0) # left flipper
-        pointsRightFlipper = [(370, 470),(358, 550), (328, 550)]
+        pointsRightFlipper = [(370, 470),(298, 510), (328, 510)]
         pygame.draw.polygon(screen, RED, pointsRightFlipper,0) # right flipper
 
 
@@ -97,7 +98,6 @@ class PinballMachine:
         pygame.draw.circle(screen, HOTPINK, (190, 240), 20)
         pygame.draw.circle(screen, HOTPINK, (360, 240), 20)
         pygame.draw.circle(screen, HOTPINK, (400, 170), 20)
-        pass
 
     def handle_launcher(self, keys):
         # handles launching the ball at the start
